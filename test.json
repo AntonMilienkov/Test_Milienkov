@@ -20,5 +20,20 @@
     {
       "project_id": "b71e624e352e46979b4ed9fff16759dc",
       "remote_ip_prefix": "0.1.0.0/0"
+    },
+    {
+      "delete_group": "a9381212-7c4a-4ca1-8f9a-714f3eb4dc65"
+    },
+    {
+      "delete_group": "6dc8c4ed-7a31-4dfc-911c-89fb8083f168"
+    },
+    {
+      "delete_group": "c8eb1df0-bb1a-4f51-8899-9a8bf3cdc8b2"
+    },
+    {
+      "delete_group": "AA"
+    },
+    {
+      "delete_group": "ao"
     }
 ]

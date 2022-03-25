@@ -16,7 +16,29 @@ acceptable_directions = ['ingress', 'egress']
 
 rule_num = 0
 for rule in rules:
-    rule_num+=1  
+    rule_num+=1
+    if "delete_group" in rule:
+        if len(rule) != 1:
+            print("Delete group, everythin else - ignored")
+
+        if not conn.get_security_group(rule["delete_group"]):
+            print("Error: rule ", rule_num, ": Security group ", rule["delete_group"], " does not exist" , sep='')
+            continue
+        try:
+            is_delete = conn.delete_security_group(rule["delete_group"])
+            if is_delete:
+                print("rule ", rule_num, ": success")
+            else:
+                print("rule ", rule_num, ": failure")
+        except openstack.exceptions.ConflictException:
+            print("Error: rule ", rule_num, ": that group can not be delete because it is in use", sep='')
+        except openstack.exceptions.unavailablefeature:
+            print("that cloud do not has security groups")
+        except SDKException:
+            print("something is wrong")
+
+        continue
+    
     if ('protocol' not in rule or rule['protocol'] == None) and 'ports' in rule:
         print("Warning: rule ", rule_num, ": if parametr 'ports' is set then 'protocol' must also be set.", sep='')
         print('TCP is set')
