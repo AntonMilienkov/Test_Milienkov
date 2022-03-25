@@ -1,0 +1,24 @@
+[
+    {
+      "ports": ["80"],
+      "protocol": "ICMP",
+      "direction": "ingress",
+      "project_id": "b71e624e352e46979b4ed9fff16759dc"
+    },
+    {
+      "ports": ["8080-8090", "8100", "8200-8300"],
+      "protocol": "UDP",
+      "remote_group_id": "6dc8c4ed-7a31-4dfc-911c-89fb8083f168a",
+      "direction": "egress",
+      "project_id": "b71e624e352e46979b4ed9fff16759dc"
+    },
+    {
+      "direction": "ingress",
+      "remote_group_id": "6dc8c4ed-7a31-4dfc-911c-89fb8083f168",
+      "project_id": "b71e624e352e46979b4ed9fff16759dc"
+    },
+    {
+      "project_id": "b71e624e352e46979b4ed9fff16759dc",
+      "remote_ip_prefix": "0.1.0.0/0"
+    }
+]
